@@ -36,16 +36,15 @@ const { jobs } = Astro.props;
             <h2 class="text-base font-medium text-gray-900 transition-colors group-hover:text-gray-800">
               {job.title}
             </h2>
-            <p class="mt-1 text-sm text-gray-500">{job.company}</p>
+            <p class="mt-1 text-sm text-gray-500">{job.description}</p>
             <div class="mt-3 flex items-center gap-3 text-xs text-gray-400">
-              <span>{job.location}</span>
-              {job.salary && <span class="text-gray-600">{job.salary}</span>}
+              {job.budget && <span class="text-gray-600">{job.budget}</span>}
             </div>
-            {job.tags && (
+            {job.skills && (
               <div class="mt-3 flex flex-wrap gap-1.5">
-                {job.tags.map((tag) => (
+                {job.skills.map((skill) => (
                   <span class="rounded bg-gray-50 px-2 py-0.5 text-xs text-gray-500">
-                    {tag}
+                    {skill}
                   </span>
                 ))}
               </div>
