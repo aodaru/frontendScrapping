@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Listworks from "../components/Listworks.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Job {
+  id: string;
+  title: string;
+  description: string;
+  budget: string;
+  skills: string[];
+  url: string;
+  postedDate: string;
+  extractedAt: string;
+  paymentVerified: boolean;
+  bids: string;
+}
+
+const response = await fetch("https://workscrap.adalgarcia.com/listwork");
+
+const data = await response.json();
+const jobs = data.data.map((job: Job) => ({
+  id: job.id,
+  title: job.title,
+  description: job.description,
+  budget: job.budget,
+  skills: job.skills,
+  url: job.url,
+  postedDate: job.postedDate,
+  extractedAt: job.extractedAt,
+  paymentVerified: job.paymentVerified,
+  bids: job.bids,
+}));
+---
+
+<Layout>
+  <Header />
+  <Listworks jobs={jobs} />
+  <Footer />
+</Layout>
