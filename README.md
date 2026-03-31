@@ -95,6 +95,8 @@ Respuesta esperada:
 
 ## Despliegue
 
+Para el despliegue utilice la 🔗[cubepath](https://cubepath.com). una VM tipo gp.micro para instalar dockploy y poder desplegar tanto el front como el back.
+
 El proyecto está configurado para desplegarse en Railway usando nixpacks:
 
 ```toml
