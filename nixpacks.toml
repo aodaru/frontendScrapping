@@ -6,10 +6,10 @@ aptPkgs = ['curl', 'wget']
 cmds = ['corepack enable && pnpm install --frozen-lockfile']
 
 [phases.build]
-cmds = ['pnpm build']
+cmds = ['pnpm run build']
 
 [start]
-cmd = 'pnpm preview'
+cmd = 'npx serve dist'
 
 [variables]
 NODE_ENV = 'production'
