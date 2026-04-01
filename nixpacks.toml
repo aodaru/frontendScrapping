@@ -1,15 +1,15 @@
 [phases.setup]
-nixPkgs = ['nodejs_22']
-aptPkgs = ['curl', 'wget']
+nixPkgs = ['nodejs_22', 'pnpm']
 
 [phases.install]
-cmds = ['corepack enable && pnpm install --frozen-lockfile']
+cmds = ['pnpm install --frozen-lockfile']
 
 [phases.build]
 cmds = ['pnpm run build']
 
 [start]
-cmd = 'npx serve dist'
+cmd = 'node dist/server/entry.mjs'
 
 [variables]
+PORT = '8080'
 NODE_ENV = 'production'
