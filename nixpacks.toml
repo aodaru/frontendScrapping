@@ -11,5 +11,4 @@ cmds = ['pnpm run build']
 cmd = 'node dist/server/entry.mjs'
 
 [variables]
-PORT = '8080'
 NODE_ENV = 'production'
