@@ -20,7 +20,7 @@ interface Job {
 
 const apiUrl = process.env.WORKSCRAP_API_URL || "http://localhost:30506";
 
-const response = await fetch(apiUrl + "/listworks");
+const response = await fetch(apiUrl + "/listwork");
 
 const data = await response.json();
 const jobs = data.data.map((job: Job) => ({
