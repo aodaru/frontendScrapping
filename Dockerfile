@@ -1,8 +1,6 @@
 # Stage 1: Base and dependencies
 FROM node:22-slim AS base
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="/pnpm"
 RUN corepack enable
 
 WORKDIR /app
@@ -27,13 +25,6 @@ FROM node:22-slim AS runtime
 
 WORKDIR /app
 
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=4321
-
-# Install pnpm in the runtime stage to install production-only dependencies
-ENV PNPM_HOME="/pnpm"
-ENV PATH="/pnpm"
 RUN corepack enable
 
 # Copy package files and install production dependencies
