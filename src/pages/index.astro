@@ -18,7 +18,9 @@ interface Job {
   bids: string;
 }
 
-const apiUrl = process.env.WORKSCRAP_API_URL || "http://localhost:30506";
+const apiUrl = import.meta.env.WORKSCRAP_API_URL || "http://localhost:30506";
+
+console.log(apiUrl);
 
 const response = await fetch(apiUrl + "/listwork");
 
