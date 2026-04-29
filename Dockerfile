@@ -2,7 +2,7 @@
 FROM node:22-slim AS base
 
 ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ENV PATH="/pnpm"
 RUN corepack enable
 
 WORKDIR /app
@@ -33,7 +33,7 @@ ENV PORT=4321
 
 # Install pnpm in the runtime stage to install production-only dependencies
 ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ENV PATH="/pnpm"
 RUN corepack enable
 
 # Copy package files and install production dependencies
