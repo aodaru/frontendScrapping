@@ -37,9 +37,13 @@ pnpm install
 
 ### Variables de entorno
 
-| Variable  | Descripción               | Default                            |
-| --------- | ------------------------- | ---------------------------------- |
-| `API_URL` | URL de la API de trabajos | `https://workscrap.adalgarcia.com` |
+Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
+
+| Variable  | Descripción               | Default                   |
+| --------- | ------------------------- | ------------------------- |
+| `WORKSCRAP_API_URL` | URL de la API de trabajos | `http://localhost:30506` |
+
+Nota: Al usar `dotenv`, estas variables se cargan en tiempo de ejecución al iniciar el servidor.
 
 ### Scripts
 
@@ -48,6 +52,7 @@ pnpm install
 | `pnpm dev`    | Inicia servidor dev en `localhost:4321`    |
 | `pnpm build`  | Genera build de producción en `./dist/`    |
 | `pnpm preview` | Preview del build local antes de desplegar |
+| `node server.mjs` | Inicia el servidor de producción con soporte para `.env` |
 
 ## Estructura del proyecto
 
@@ -111,7 +116,7 @@ cmds = ['pnpm install --frozen-lockfile']
 cmds = ['pnpm build']
 
 [start]
-cmd = 'pnpm preview'
+cmd = 'node server.mjs'
 
 [variables]
 NODE_ENV = 'production'
