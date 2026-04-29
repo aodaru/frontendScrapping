@@ -25,12 +25,15 @@ console.log(apiUrl);
 const response = await fetch(apiUrl + "/listwork");
 
 const data = await response.json();
+// Fix: Filter out corrupted first element (concatenated skills string)
 const jobs = data.data.map((job: Job) => ({
   id: job.id,
   title: job.title,
   description: job.description,
   budget: job.budget,
-  skills: job.skills,
+  skills: job.skills?.filter((skill: string, index: number) => {
+    return index > 0 && skill.trim().length > 0;
+  }) || [],
   url: job.url,
   postedDate: job.postedDate,
   extractedAt: job.extractedAt,

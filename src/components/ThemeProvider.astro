@@ -1,0 +1,30 @@
+---
+---
+
+<script>
+  const getTheme = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const setTheme = (theme) => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  };
+
+  // Apply theme on initial load
+  setTheme(getTheme());
+
+  // Listen for theme toggle events
+  document.addEventListener('theme-toggle', () => {
+    const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  });
+</script>

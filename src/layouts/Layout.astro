@@ -1,14 +1,22 @@
+---
+import ThemeProvider from "../components/ThemeProvider.astro";
+---
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Listado de trabajos remotos</title>
-  </head>
-  <body class="flex min-h-screen flex-col bg-slate-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Listado de trabajos remotos</title>
+  <meta name="description" content="Encuentra trabajos remotos actualizados diariamente con información de presupuesto, habilidades requeridas y enlaces directos." />
+  <meta property="og:title" content="Listado de trabajos remotos" />
+  <meta property="og:description" content="Encuentra trabajos remotos actualizados diariamente con información de presupuesto, habilidades requeridas y enlaces directos." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href={Astro.url} />
+</head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900 transition-colors duration-200 dark:bg-gray-900 dark:text-gray-100">
+    <ThemeProvider />
     <slot />
   </body>
 </html>
@@ -19,5 +27,6 @@
     margin: 0;
     width: 100%;
     min-height: 100vh;
+    transition: background-color 0.2s, color 0.2s;
   }
 </style>
