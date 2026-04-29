@@ -18,7 +18,10 @@ interface Job {
   bids: string;
 }
 
-const apiUrl = process.env.WORKSCRAP_API_URL || "http://localhost:30506";
+const apiUrl =
+  process.env.WORKSCRAP_API_URL ||
+  import.meta.env.WORKSCRAP_API_URL ||
+  "http://localhost:30506";
 
 console.log(apiUrl);
 
@@ -31,9 +34,10 @@ const jobs = data.data.map((job: Job) => ({
   title: job.title,
   description: job.description,
   budget: job.budget,
-  skills: job.skills?.filter((skill: string, index: number) => {
-    return index > 0 && skill.trim().length > 0;
-  }) || [],
+  skills:
+    job.skills?.filter((skill: string, index: number) => {
+      return index > 0 && skill.trim().length > 0;
+    }) || [],
   url: job.url,
   postedDate: job.postedDate,
   extractedAt: job.extractedAt,
