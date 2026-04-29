@@ -24,6 +24,8 @@ const apiUrl =
   "http://localhost:30506";
 
 console.log(apiUrl);
+console.log("ALL ENV:", process.env);
+console.log("ALL ENV ASTRO:", import.meta.env);
 
 const response = await fetch(apiUrl + "/listwork");
 
