@@ -3,6 +3,9 @@ dist/
 
 # generated types
 .astro/
+.agents/
+pnpm-lock.yaml
+AGENTS.md
 
 # dependencies
 node_modules/
