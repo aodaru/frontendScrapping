@@ -49,12 +49,12 @@ if (data && data.data.length > 1) {
     return formatDistanceToNow(dataConvert, { addSuffix: true, locale: es });
   };
 
-  //filter it-programming
-  const itData = dataOrdenada.filter(
-    (data) => data.category === "it-programming",
+  //filter admin support
+  const adminData = dataOrdenada.filter(
+    (data) => data.category === "admin support",
   );
   // Fix: Filter out corrupted first element (concatenated skills string)
-  jobs = itData.map((job: Job) => ({
+  jobs = adminData.map((job: Job) => ({
     id: job.id,
     title: job.title,
     category: job.category,
