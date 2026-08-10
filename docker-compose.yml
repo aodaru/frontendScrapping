@@ -8,3 +8,8 @@ services:
     environment:
       - NODE_ENV=production
     restart: unless-stopped
+    networks:
+      - ix-worklist_default
+networks:
+  ix-worklist_default:
+    external: true
